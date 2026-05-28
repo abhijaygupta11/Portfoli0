@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhijay Gupta | AI Developer & Entrepreneur</title>
+    <style>
+        /* --- MULTI-TONE NEO-DARK THEME CONFIGURATION --- */
+        /* Aligned with 4-point Rubric: Consistently appealing, professional, and readable */
+        :root {
+            --bg-base: #0a0a0c;
+            --bg-surface: #121216;
+            --bg-card: #1a1a22;
+            --border-glow: #2a2a35;
+            --accent-glow: #3b82f6; /* Subtle AI Electric Blue */
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            --font-stack: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* --- GLOBAL RESET & SCROLL SETUP --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: var(--font-stack);
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-base);
+        }
+
+        body {
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* --- STYLISH NAVIGATION BAR --- */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px 8%;
+            background: rgba(10, 10, 12, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-glow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            background: linear-gradient(to right, #ffffff, var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-links a {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            text-decoration: none;
+            transition: var(--transition-smooth);
+        }
+
+        .nav-links a:hover {   
+            color: var(--text-primary);
+            text-shadow: 0 0 8px rgba(255,255,255,0.3);
+        }
+
+        /* --- STRUCTURAL LAYOUT BUILDER --- */
+        section {
+            padding: 120px 8% 80px 8%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .section-header {
+            font-size: 2.2rem;
+            font-weight: 400;
+            margin-bottom: 50px;
+            letter-spacing: -0.5px;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .section-header::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 15%;
+            height: 70%;
+            width: 4px;
+            background-color: var(--accent-glow);
+            border-radius: 2px;
+        }
+
+        /* --- HERO / ABOUT SECTION --- */
+        #home {
+            background: radial-gradient(circle at 90% 10%, #161b26 0%, var(--bg-base) 70%);
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            font-weight: 300;
+            line-height: 1.1;
+            margin-bottom: 15px;
+            letter-spacing: -2px;
+        }
+
+        .hero-title span {
+            font-weight: 600;
+        }
+
+        .hero-subtitle {
+            font-size: 1.4rem;
+            color: var(--accent-glow);
+            font-weight: 400;
+            margin-bottom: 40px;
+            letter-spacing: 0.5px;
+        }
+
+        .bio-container {
+            max-width: 850px;
+        }
+
+        .bio-container p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+            text-align: justify;
+        }
+
+        .highlight-keyword {
+            color: var(--text-primary);
+            font-weight: 500;
+            background: linear-gradient(120deg, rgba(59,130,246,0.1) 0%, rgba(59,130,246,0.2) 100%);
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* --- RESUME SECTION --- */
+        .resume-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 50px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            padding: 45px;
+        }
+
+        .resume-left {
+            border-right: 1px solid var(--border-glow);
+            padding-right: 40px;
+        }
+
+        .resume-right {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .resume-meta-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .skill-badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .skill-badge {
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            color: var(--text-primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .timeline-item {
+            position: relative;
+            padding-left: 25px;
+            border-left: 1px dashed var(--border-glow);
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: 8px;
+            width: 7px;
+            height: 7px;
+            background-color: var(--accent-glow);
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            font-size: 0.85rem;
+            color: var(--accent-glow);
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .timeline-title {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .timeline-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* --- PROJECTS GRID SYSTEM --- */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* Split into two-column side-by-side layout */
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 30px;
+            width: 100%;
+        }
+
+        .project-card {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-glow);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-card:hover {
+            transform: translateY(-6px);
+            border-color: #475569;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .video-wrapper {
+            width: 100%;
+            position: relative;
+            background: #000;
+            aspect-ratio: 16 / 9;
+            border-bottom: 1px solid var(--border-glow);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .project-content {
+            padding: 30px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .project-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 4px;
+            font-weight: 600;
+            letter-spacing: -0.3px;
+        }
+
+        .project-date {
+            font-size: 0.85rem;
+            color: var(--accent-glow);
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        .project-card p {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .rubric-tag-container {
+            margin-top: auto;
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .rubric-tag {
+            font-size: 0.75rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-glow);
+            color: var(--text-muted);
+            padding: 4px 10px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- CONTACT SECTION --- */
+        #contact {
+            text-align: center;
+            align-items: center;
+            justify-content: center;
+            min-height: 80vh;
+            background: radial-gradient(circle at 50% 90%, #10141e 0%, var(--bg-base) 60%);
+        }
+
+        #contact p {
+            color: var(--text-secondary);
+            font-size: 1.15rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+        }
+
+        .contact-btn {
+            display: inline-block;
+            padding: 16px 45px;
+            border: 1px solid var(--text-primary);
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            border-radius: 30px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            background: transparent;
+        }
+
+        .contact-btn:hover {
+            background: var(--text-primary);
+            color: var(--bg-base);
+            box-shadow: 0 10px 30px rgba(255,255,255,0.15);
+            transform: scale(1.02);
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            padding: 40px 8%;
+            border-top: 1px solid var(--border-glow);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        /* --- RESPONSIVE MEDIA QUERIES --- */
+        @media (max-width: 968px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+            }
+            .resume-grid {
+                grid-template-columns: 1fr;
+                gap: 35px;
+                padding: 30px;
+            }
+            .resume-left {
+                border-right: none;
+                border-bottom: 1px solid var(--border-glow);
+                padding-right: 0;
+                padding-bottom: 25px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .hero-title { font-size: 2.8rem; }
+            section { padding: 100px 5% 60px 5%; }
+            nav { padding: 20px 5%; }
+            .nav-links { display: none; } 
+            footer { flex-direction: column; gap: 15px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="logo">Abhijay Gupta</div>
+        <ul class="nav-links">
+            <li><a href="#home">About</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <h1 class="hero-title">Hello, I'm <span>Abhijay</span>.</h1>
+        <div class="hero-subtitle">Aspiring AI Entrepreneur & Developer</div>
+        
+        <div class="bio-container">
+            <p>
+                My name is <span class="highlight-keyword">Abhijay Gupta</span> and I want to create a business that will mainly focus on the advancements of AI. If I want to do this, I have to first learn programming and the different languages. This will help me further proceed on my goal. This is my career choice because I have always been interested in computers and the new use of AI will further this to the next level, and I want to be part of it.
+            </p>
+            <p>
+                One of my strengths is that I am <span class="highlight-keyword">quickly able to learn new things</span> and be able to utilize them. This is helpful because when I am working on something new I can be able to learn new things fast and be able to apply it. This allows me to understand and work with the team seamlessly.
+            </p>
+            <p>
+                I enjoy learning and making programming projects. For example, in my coding class in which I learn Python, I used my skills from the class to build a small game with my teammates. I also worked on school projects which helped me learn to work with a team to make an app work. These experiences taught me how to work well with a team and keep trying different ways to find a solution.
+            </p>
+            <p>
+                Thanks for taking the time to read about me and my goals. I hope this gives you an idea of my goals and passions, and helps me further my development. Feel free to check out the rest of my site to see my projects and learn more about me.
+            </p>
+        </div>
+    </section>
+
+    <section id="resume">
+        <h2 class="section-header">Academic Resume</h2>
+        <div class="resume-grid">
+            <div class="resume-left">
+                <div class="resume-meta-title">Abhijay Gupta</div>
+                <p style="font-size: 0.95rem; margin-bottom: 20px;">Dedicated computing student focusing on rapid language acquisition, agile collaborative problem solving, and interface design frameworks.</p>
+                
+                <div class="resume-meta-title" style="font-size: 1.1rem; margin-top: 30px;">Core Toolset</div>
+                <div class="skill-badge-container">
+                    <div class="skill-badge">Python</div>
+                    <div class="skill-badge">Application Logic</div>
+                    <div class="skill-badge">UI Planning</div>
+                    <div class="skill-badge">Agile Collaboration</div>
+                    <div class="skill-badge">Team Leadership</div>
+                    <div class="skill-badge">Rapid Prototyping</div>
+                </div>
+            </div>
+            
+            <div class="resume-right">
+                <div>
+                    <div class="resume-meta-title" style="color: var(--text-muted); font-size: 0.85rem; letter-spacing: 1px; text-transform: uppercase;">Development History</div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-date">Academic Term Project</div>
+                    <div class="timeline-title">Co-Developer, Software Simulation Team</div>
+                    <div class="timeline-desc">Collaborated within engineered student structures to model, design, and compile application scripts. Mastered iterative operational testing steps to overcome deployment anomalies.</div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-date">Technical Immersion</div>
+                    <div class="timeline-title">Python Core & Game Frameworks</div>
+                    <div class="timeline-desc">Studied systemic language structures and Object-Oriented principles. Developed conceptual gameplay logic modules as part of interactive group milestone goals.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2 class="section-header">Selected Engineering Projects</h2>
+        <div class="project-grid">
+            
+            <div class="project-card">
+                <div class="video-wrapper">
+                    <iframe src="https://drive.google.com/file/d/1oB9UG_zz44TkkAE7r3URVWZhXV0mP2Dg/preview" allow="autoplay"></iframe>
+                </div>
+                <div class="project-content">
+                    <h3>Fast-Food Ordering System</h3>
+                    <div class="project-date">Computer Science Essentials | May 1, 2026</div>
+                    <p>
+                        I developed an interactive Python command-line application that automates a fast-food ordering process and outputs an itemized receipt. My responsibilities included programming the menu logic, implementing strict input validation to prevent user errors, and dynamically calculating totals based on quantities and custom modifiers. Through this project, I learned how to manage application state using lists, handle data type casting, and control program flow with loops and conditional structures. This project exemplifies my skills in Python programming, logical problem-solving, and user input validation.
+                    </p>
+                    <div class="rubric-tag-container">
+                        <span class="rubric-tag">Python Programming</span>
+                        <span class="rubric-tag">Input Validation</span>
+                        <span class="rubric-tag">Flow Control</span>
+                        <span class="rubric-tag">Data Type Casting</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card">
+                <div class="video-wrapper">
+                    <iframe src="https://drive.google.com/file/d/1-hrVa9iu7Oiipj8rsY_wifZduEJUrJ6V/preview" allow="autoplay"></iframe>
+                </div>
+                <div class="project-content">
+                    <h3>Autonomous Snowplow Robotics Simulation</h3>
+                    <div class="project-date">Computer Science Essentials | May 27, 2026</div>
+                    <p>
+                        I engineered a simulated automated snowplow using the STV robotic system and Python to address hazardous clearing conditions. The primary implementation involved programming proactive obstacle detection systems that trigger safety responses. Upon finding an obstruction, the program structures automatically pause locomotion, switch to a path-clearing routine, and seamlessly resume travel protocols once path safely resets. This milestone deepened my understanding of hardware-software loops, asynchronous state switches, and event-driven robotics programming.
+                    </p>
+                    <div class="rubric-tag-container">
+                        <span class="rubric-tag">Robotics Simulation</span>
+                        <span class="rubric-tag">Python Control Logic</span>
+                        <span class="rubric-tag">Obstacle Detection</span>
+                        <span class="rubric-tag">Event-Driven Flow</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2 class="section-header" style="padding-left: 0; text-align: center;">Get In Touch</h2>
+        <p>
+            I am currently open to discussing new opportunities, educational collaborations, or simply chatting about the structural future of Artificial Intelligence.
+        </p>
+        <a href="mailto:abhijaygupta11@gmail.com" class="contact-btn">
+            abhijaygupta11@gmail.com
+        </a>
+    </section>
+
+    <footer>
+        <div>&copy; 2026 Abhijay Gupta. All Rights Reserved.</div>
+        <div style="font-size: 0.75rem;">Designed in compliance with PLTW Portfolio Layout Standards.</div>
+    </footer>
+
+</body>
+</html>

@@ -161,8 +161,7 @@
             border-radius: 4px;
         }
 
-        /* --- RESUME SECTION (RUBRIC CONFORMANCE) --- */
-        /* Fulfills "Columns/tables used appropriately to separate text for readability" */
+        /* --- RESUME SECTION --- */
         .resume-grid {
             display: grid;
             grid-template-columns: 1fr 2fr;
@@ -246,8 +245,11 @@
         /* --- PROJECTS GRID SYSTEM --- */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 40px;
+            grid-template-columns: repeat(2, 1fr); /* Two-column layout */
+            max-width: 1200px;
+            margin: 0 auto;
+            gap: 30px;
+            width: 100%;
         }
 
         .project-card {
@@ -274,10 +276,13 @@
             border-bottom: 1px solid var(--border-glow);
         }
 
-        .project-card video {
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            border: 0;
         }
 
         .project-content {
@@ -289,9 +294,16 @@
 
         .project-card h3 {
             font-size: 1.3rem;
-            margin-bottom: 12px;
+            margin-bottom: 4px;
             font-weight: 600;
             letter-spacing: -0.3px;
+        }
+
+        .project-date {
+            font-size: 0.85rem;
+            color: var(--accent-glow);
+            font-weight: 500;
+            margin-bottom: 16px;
         }
 
         .project-card p {
@@ -305,6 +317,7 @@
             margin-top: auto;
             display: flex;
             gap: 8px;
+            flex-wrap: wrap;
         }
 
         .rubric-tag {
@@ -368,6 +381,10 @@
 
         /* --- RESPONSIVE MEDIA QUERIES --- */
         @media (max-width: 968px) {
+            .project-grid {
+                grid-template-columns: 1fr;
+                max-width: 600px;
+            }
             .resume-grid {
                 grid-template-columns: 1fr;
                 gap: 35px;
@@ -384,9 +401,8 @@
         @media (max-width: 768px) {
             .hero-title { font-size: 2.8rem; }
             section { padding: 100px 5% 60px 5%; }
-            .project-grid { grid-template-columns: 1fr; }
             nav { padding: 20px 5%; }
-            .nav-links { display: none; } /* Mobile optimization placeholder */
+            .nav-links { display: none; } 
             footer { flex-direction: column; gap: 15px; text-align: center; }
         }
     </style>
@@ -467,38 +483,38 @@
             
             <div class="project-card">
                 <div class="video-wrapper">
-                    <video controls muted preload="metadata">
-                        <source src="Pizza by The Slice.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                    <iframe src="https://drive.google.com/file/d/1oB9UG_zz44TkkAE7r3URVWZhXV0mP2Dg/preview" allow="autoplay"></iframe>
                 </div>
                 <div class="project-content">
-                    <h3>Pizza by The Slice</h3>
+                    <h3>Fast-Food Ordering System</h3>
+                    <div class="project-date">Computer Science Essentials | May 1, 2026</div>
                     <p>
-                        The objective of this project was to calculate the total cost of a pizza based on the price per slice. By determining the cost of each slice and the total geometric area, the project calculates overall price effectiveness. This demonstrates how mathematical functions directly integrate into programmatic loops to solve real-world cost analysis problems.
+                        I developed an interactive Python command-line application that automates a fast-food ordering process featuring a dynamic inventory menu, including custom items like pizza by the slice and Life Savers, and outputs an itemized receipt. My responsibilities included programming the menu logic, implementing strict input validation to prevent user errors, and dynamically calculating totals based on quantities and custom modifiers. Through this project, I learned how to manage application state using lists, handle data type casting, and control program flow with loops and conditional structures. This project exemplifies my skills in Python programming, logical problem-solving, and user input validation.
                     </p>
                     <div class="rubric-tag-container">
-                        <span class="rubric-tag">Python Scripting</span>
-                        <span class="rubric-tag">Applied Mathematics</span>
+                        <span class="rubric-tag">Python Programming</span>
+                        <span class="rubric-tag">Input Validation</span>
+                        <span class="rubric-tag">Flow Control</span>
+                        <span class="rubric-tag">Data Type Casting</span>
                     </div>
                 </div>
             </div>
 
             <div class="project-card">
                 <div class="video-wrapper">
-                    <video controls muted preload="metadata">
-                        <source src="Live Savers.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
+                    <iframe src="https://drive.google.com/file/d/1-hrVa9iu7Oiipj8rsY_wifZduEJUrJ6V/preview" allow="autoplay"></iframe>
                 </div>
                 <div class="project-content">
-                    <h3>Live Savers (Emergency Drills)</h3>
+                    <h3>Autonomous Snowplow Robotics Simulation</h3>
+                    <div class="project-date">Computer Science Essentials | May 27, 2026</div>
                     <p>
-                        The main idea of this project is to create an app that provides clear instructions on what to do during different types of natural disasters and emergency situations, such as fires, earthquakes, tornadoes, and intruder alerts. It helps users quickly absorb critical safety steps, showcasing dynamic user experience and interface architecture designed under pressure.
+                        I engineered a simulated automated snowplow using the STV robotic system and Python to address hazardous clearing conditions. The primary implementation involved programming proactive obstacle detection systems that trigger safety responses. Upon finding an obstruction, the program structures automatically pause locomotion, switch to a path-clearing routine, and seamlessly resume travel protocols once path safely resets. This milestone deepened my understanding of hardware-software loops, asynchronous state switches, and event-driven robotics programming.
                     </p>
                     <div class="rubric-tag-container">
-                        <span class="rubric-tag">UI/UX Design</span>
-                        <span class="rubric-tag">Crisis Management App</span>
+                        <span class="rubric-tag">Robotics Simulation</span>
+                        <span class="rubric-tag">Python Control Logic</span>
+                        <span class="rubric-tag">Obstacle Detection</span>
+                        <span class="rubric-tag">Event-Driven Flow</span>
                     </div>
                 </div>
             </div>

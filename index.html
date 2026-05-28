@@ -6,13 +6,12 @@
     <title>Abhijay Gupta | AI Developer & Entrepreneur</title>
     <style>
         /* --- MULTI-TONE NEO-DARK THEME CONFIGURATION --- */
-        /* Aligned with 4-point Rubric: Consistently appealing, professional, and readable */
         :root {
             --bg-base: #0a0a0c;
             --bg-surface: #121216;
             --bg-card: #1a1a22;
             --border-glow: #2a2a35;
-            --accent-glow: #3b82f6; /* Subtle AI Electric Blue */
+            --accent-glow: #3b82f6; 
             --text-primary: #f8fafc;
             --text-secondary: #94a3b8;
             --text-muted: #64748b;
@@ -245,10 +244,10 @@
         /* --- PROJECTS GRID SYSTEM --- */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Split into two-column side-by-side layout */
+            grid-template-columns: repeat(2, 1fr); 
             max-width: 1200px;
             margin: 0 auto;
-            gap: 30px;
+            gap: 35px;
             width: 100%;
         }
 
@@ -268,12 +267,14 @@
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
         }
 
+        /* FIXED VIDEO CONTAINER: Enhanced aspect padding and explicit height tracking */
         .video-wrapper {
             width: 100%;
             position: relative;
             background: #000;
-            aspect-ratio: 16 / 9;
+            padding-top: 56.25%; /* Perfect 16:9 widescreen ratio */
             border-bottom: 1px solid var(--border-glow);
+            overflow: hidden;
         }
 
         .video-wrapper iframe {
@@ -483,7 +484,7 @@
             
             <div class="project-card">
                 <div class="video-wrapper">
-                    <iframe src="https://docs.google.com/get_video_info?docid=1oB9UG_zz44TkkAE7r3URVWZhXV0mP2Dg&authuser=" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <iframe src="https://drive.google.com/file/d/1oB9UG_zz44TkkAE7r3URVWZhXV0mP2Dg/preview" allow="autoplay" allowfullscreen></iframe>
                 </div>
                 <div class="project-content">
                     <h3>Fast-Food Ordering System</h3>
@@ -502,7 +503,7 @@
 
             <div class="project-card">
                 <div class="video-wrapper">
-                    <iframe src="https://docs.google.com/get_video_info?docid=1-hrVa9iu7Oiipj8rsY_wifZduEJUrJ6V&authuser=" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                    <iframe src="https://drive.google.com/file/d/1-hrVa9iu7Oiipj8rsY_wifZduEJUrJ6V/preview" allow="autoplay" allowfullscreen></iframe>
                 </div>
                 <div class="project-content">
                     <h3>Autonomous Snowplow Robotics Simulation</h3>

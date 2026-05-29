@@ -122,6 +122,13 @@
             background: radial-gradient(circle at 90% 10%, #161b26 0%, var(--bg-base) 70%);
         }
 
+        .hero-layout {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
         .hero-title {
             font-size: 4rem;
             font-weight: 300;
@@ -142,10 +149,6 @@
             letter-spacing: 0.5px;
         }
 
-        .bio-container {
-            max-width: 850px;
-        }
-
         .bio-container p {
             font-size: 1.1rem;
             color: var(--text-secondary);
@@ -159,6 +162,27 @@
             background: linear-gradient(120deg, rgba(59,130,246,0.1) 0%, rgba(59,130,246,0.2) 100%);
             padding: 2px 6px;
             border-radius: 4px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .hero-image {
+            width: 100%;
+            max-width: 400px;
+            height: auto;
+            border-radius: 20px;
+            border: 1px solid var(--border-glow);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            transition: var(--transition-smooth);
+        }
+
+        .hero-image:hover {
+            border-color: var(--accent-glow);
+            transform: scale(1.01);
         }
 
         /* --- RESUME SECTION --- */
@@ -245,7 +269,7 @@
         /* --- PROJECTS GRID SYSTEM --- */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr); /* Two-column layout */
+            grid-template-columns: repeat(2, 1fr);
             max-width: 1200px;
             margin: 0 auto;
             gap: 30px;
@@ -381,6 +405,13 @@
 
         /* --- RESPONSIVE MEDIA QUERIES --- */
         @media (max-width: 968px) {
+            .hero-layout {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+            .image-container {
+                order: -1; /* Puts the profile image above text on smaller tablets/mobile */
+            }
             .project-grid {
                 grid-template-columns: 1fr;
                 max-width: 600px;
@@ -420,22 +451,30 @@
     </nav>
 
     <section id="home">
-        <h1 class="hero-title">Hello, I'm <span>Abhijay</span>.</h1>
-        <div class="hero-subtitle">Aspiring AI Entrepreneur & Developer</div>
-        
-        <div class="bio-container">
-            <p>
-                My name is <span class="highlight-keyword">Abhijay Gupta</span> and I want to create a business that will mainly focus on the advancements of AI. If I want to do this, I have to first learn programming and the different languages. This will help me further proceed on my goal. This is my career choice because I have always been interested in computers and the new use of AI will further this to the next level, and I want to be part of it.
-            </p>
-            <p>
-                One of my strengths is that I am <span class="highlight-keyword">quickly able to learn new things</span> and be able to utilize them. This is helpful because when I am working on something new I can be able to learn new things fast and be able to apply it. This allows me to understand and work with the team seamlessly.
-            </p>
-            <p>
-                I enjoy learning and making programming projects. For example, in my coding class in which I learn Python, I used my skills from the class to build a small game with my teammates. I also worked on school projects which helped me learn to work with a team to make an app work. These experiences taught me how to work well with a team and keep trying different ways to find a solution.
-            </p>
-            <p>
-                Thanks for taking the time to read about me and my goals. I hope this gives you an idea of my goals and passions, and helps me further my development. Feel free to check out the rest of my site to see my projects and learn more about me.
-            </p>
+        <div class="hero-layout">
+            <div class="text-container">
+                <h1 class="hero-title">Hello, I'm <span>Abhijay</span>.</h1>
+                <div class="hero-subtitle">Aspiring AI Entrepreneur & Developer</div>
+                
+                <div class="bio-container">
+                    <p>
+                        My name is <span class="highlight-keyword">Abhijay Gupta</span> and I want to create a business that will mainly focus on the advancements of AI. If I want to do this, I have to first learn programming and the different languages. This will help me further proceed on my goal. This is my career choice because I have always been interested in computers and the new use of AI will further this to the next level, and I want to be part of it.
+                    </p>
+                    <p>
+                        One of my strengths is that I am <span class="highlight-keyword">quickly able to learn new things</span> and be able to utilize them. This is helpful because when I am working on something new I can be able to learn new things fast and be able to apply it. This allows me to understand and work with the team seamlessly.
+                    </p>
+                    <p>
+                        I enjoy learning and making programming projects. For example, in my coding class in which I learn Python, I used my skills from the class to build a small game with my teammates. I also worked on school projects which helped me learn to work with a team to make an app work. These experiences taught me how to work well with a team and keep trying different ways to find a solution.
+                    </p>
+                    <p>
+                        Thanks for taking the time to read about me and my goals. I hope this gives you an idea of my goals and passions, and helps me further my development. Feel free to check out the rest of my site to see my projects and learn more about me.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="image-container">
+                <img src="image_bae3b5.png" alt="Abhijay Gupta" class="hero-image">
+            </div>
         </div>
     </section>
 
